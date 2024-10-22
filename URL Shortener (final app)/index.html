@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Shortener</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <!-- Add this to your <head> -->
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <span class="navbar-brand mb-0 h1">HowlLink</span>
+        </div>
+    </nav>
+
+    <div class="container mt-5 w-50">
+        <div class="card shadow p-3 mb-5 bg-body-tertiary rounded">
+            <div class="card-body">
+                <div class="row">
+                    <!-- Left side with the image -->
+                    <div class="col-md-4">
+                        <p>Copyright @Utkarsh Singh</p>
+                        <div class="flip-container" id="flip-container">
+                            <div class="flipper">
+                                <div class="front">
+                                    <img src="picture.jpg" alt="Front Image" class="img-fluid">
+                                </div>
+                                <div class="back">
+                                    <img src="" id="qrimg" class="img-fluid">
+                                    <p>Always Scan the QR code to check</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right side with the content -->
+                    <div class="col-md-8">
+                        <h1 class="mb-4">URL Shortener</h1>
+
+                        <div class="mb-3">
+                            <label for="originalUrl" class="form-label">Enter URL to Shorten:</label>
+                            <input type="url" class="form-control" id="originalUrl" placeholder="https://example.com"
+                                required>
+                        </div>
+                        <div id="errorContainer" class="mt-3 text-danger"></div>
+
+                        <button class="btn btn-primary" onclick="shortenUrl()">Shorten URL</button>
+                        <br>
+
+                        <div id="shortenedUrl" class="mt-3"></div>
+                        <button id="flipButton" class="btn btn-dark mt-3" onclick="generateQR()"
+                            style="display: none;">Generate QR code</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <button class="btn btn-dark" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+            Show History
+          </button>
+
+          <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+            <div class="offcanvas-header">
+              <h5 class="offcanvas-title" id="offcanvasExampleLabel">History Tab</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+              <div>
+                "Explore your shortened URLs, stay organized, and happy shortening!"
+            </div>
+              <div class="mt-4">
+                <!--<h3>History</h3>-->
+                <div id="historyList" class="list-group"></div>
+                <button class="btn btn-danger mt-3" onclick="clearHistory()">Clear History</button>
+            </div>
+            </div>
+          </div>
+
+
+
+        <!--<div class="mt-4">
+            <h3>History</h3>
+            <div id="historyList" class="list-group"></div>
+            <button class="btn btn-danger mt-3" onclick="clearHistory()">Clear History</button>
+        </div>-->
+    </div>
+
+    <!-- Bootstrap JS and Popper.js (if needed) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+
+</body>
+
+</html>
